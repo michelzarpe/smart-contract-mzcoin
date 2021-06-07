@@ -1,0 +1,2 @@
+# smart-contract-mzcoin
+ICO 

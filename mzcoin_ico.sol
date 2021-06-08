@@ -10,6 +10,15 @@ contract mzcoin_ico {
     //total de mzcoin que foram comprados por investidores
     uint public total_mzcoin_bought = 0; 
     
+    //funcao de equivalencia para mzcoin
+    //address endereco do investidor
+    mapping(address => uint) equity_mzcoin;
+    //funcao de equivalencia para dollar
+    mapping(address => uint) equity_usd;    
     
-    
+    //verificar se o investidor pode comprar a quantidade que ele deseja de mzcoin
+    modifier con_by_mzcoins(uint usd_invested){
+        require (usd_invested * usd_to_mzcoin + total_mzcoin_bought <= max_mzcoin);
+        _;//funcao só sera aplicada onde a condição for verdadeira
+    }    
 }
